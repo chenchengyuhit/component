@@ -1,32 +1,175 @@
-.rightdirection  
-{  
-    width:0;height:0;  
-    line-height:0;  
-    border-width:20px;  
-    border-style:solid;  
-    border-color: transparent transparent transparent #A9DBF6;
-}  
-.bottomdirection  
-{  
-    width:0;height:0;  
-    line-height:0;  
-    border-width:20px;  
-    border-style:solid;  
-    border-color: #A9DBF6 transparent transparent transparent;  
-}  
-.leftdirection  
-{  
-    width:0;height:0;  
-    line-height:0;  
-    border-width:20px;  
-    border-style:solid;  
-    border-color: transparent #A9DBF6 transparent transparent;  
-}  
-.topdirection  
-{  
-    width:0;height:0;  
-    line-height:0;  
-    border-width:20px;  
-    border-style:solid;  
-    border-color: transparent transparent #A9DBF6 transparent;  
-}  
+//--------------------------------------------------------------
+//base style
+//--------------------------------------------------------------
+p{
+    width: 20px;
+}
+div{
+    margin-left: 30px;
+}
+
+//-------------------------------------------------------------
+//function style
+//-------------------------------------------------------------
+//rectangle
+@mixin rectangle($width, $height){
+    width: $width;
+    height: $height;
+}
+//triangle
+@mixin triangle($top, $right, $bottom, $left, $radius){
+    width: 0px;
+    height: 0px;
+    border-top: $top;
+    border-right: $right;
+    border-bottom: $bottom;
+    border-left: $left;
+    transform: rotate($radius);
+    -ms-transform: rotate($radius);       /* IE 9 */
+    -webkit-transform: rotate($radius);   /* Safari and Chrome */
+    -o-transform: rotate($radius);        /* Opera */
+    -moz-transform: rotate($radius);      /* Firefox */
+}
+//oval
+@mixin oval($height, $width){
+    width: $height;     
+    height: $width;             
+    -moz-border-radius: #{$height} / #{$width};     
+    -webkit-border-radius: #{$height} / #{$width};     
+    border-radius: #{$height} / #{$width}; 
+}
+//parallelogram
+@mixin parallelogram($width, $height, $radius){
+    width: $width;     
+    height: $height;         
+    -webkit-transform: skew($radius);    
+    -moz-transform: skew($radius);          
+    -o-transform: skew($radius);        
+}
+//keystone
+@mixin keystone($width, $bottom, $left, $right){
+    border-bottom: $bottom;     
+    border-left: $left;     
+    border-right: $right; 
+    height: 0;     
+    width: $width;
+}
+@mixin starOfDavid(){
+    #star-five {    margin: 50px 0;    position: relative;    display: block;    color: red;    width: 0px;    height: 0px;   
+ border-right:  100px solid transparent;    border-bottom: 70px  solid red;    border-left:   100px solid transparent;    
+-moz-transform:    rotate(35deg);    -webkit-transform: rotate(35deg);    -ms-transform:     rotate(35deg);  
+  -o-transform:      rotate(35deg); } 
+#star-five:before {    border-bottom: 80px solid red;    border-left: 30px solid transparent;   
+ border-right: 30px solid transparent;    position: absolute;    height: 0;    width: 0;    top: -45px;    left: -65px;    
+display: block;    content: '';    -webkit-transform: rotate(-35deg);    -moz-transform:    rotate(-35deg);   
+ -ms-transform:     rotate(-35deg);    -o-transform:      rotate(-35deg);      }
+ #star-five:after {    position: absolute;    display: block;    color: red;    top: 3px;    left: -105px;    width: 0px;    height: 0px;   
+ border-right: 100px solid transparent;    border-bottom: 70px solid red;    border-left: 100px solid transparent;   
+ -webkit-transform: rotate(-70deg);    -moz-transform:    rotate(-70deg);    -ms-transform:     rotate(-70deg);  
+  -o-transform:      rotate(-70deg);    content: ''; }
+}
+
+
+//--------------------------------------------------------------
+//module style
+//--------------------------------------------------------------
+//rectangle
+.rectangle{
+    @include rectangle(120px, 100px);
+    background-color: red;
+}
+//triangle
+.triangle{
+    $top: null;
+    $left: 50px solid transparent;    
+    $right: 100px solid transparent;  
+    $bottom: 80px solid red;
+    $radius: 30deg;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    margin-top: 30px;
+}
+//oval
+.oval{
+    $height: 200px;
+    $width: 100px;
+    @include oval($height, $width);
+    background: red;
+    margin-top: 50px; 
+}
+//parallelogram
+.parallelogram{
+    $width: 150px;
+    $height: 100px;
+    $radius: -20deg;
+    @include parallelogram($width, $height, $radius);
+    background: red;
+}
+//keystone
+.keystone{
+    $width: 100px;
+    $bottom: 100px solid red;
+    $left: 50px solid transparent;
+    $right: 60px solid transparent;
+    @include keystone($width, $bottom, $left, $right);
+}
+//star of david
+.starOfDavid{
+    $top: null;
+    $left: 50px solid transparent;    
+    $right: 50px solid transparent;  
+    $bottom: 100px solid red;
+    $radius: null;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    position: relative;
+}
+.starOfDavid:after{
+    $top: 100px solid red;
+    $left: 50px solid transparent;    
+    $right: 50px solid transparent;  
+    $bottom: null;
+    $radius: null;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    position: absolute;     
+    content: "";     
+    top: 30px;     
+    left: -50px;
+}
+//five-pointed star
+.fivePointStar{
+    $top: null;
+    $right: 100px solid transparent;
+    $bottom: 70px solid red;
+    $left: 100px solid transparent;
+    $radius: 35deg;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    //margin: 50px 0px;    
+    margin-top: 100px;
+    position: relative;    
+    display: block;    
+}
+.fivePointStar:before{
+    $top: null;
+    $right: 30px solid transparent;
+    $bottom: 80px solid red;
+    $left: 30px solid transparent;;
+    $radius: -35deg;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    position: absolute;    
+    top: -45px;    
+    left: -65px;    
+    display: block;    
+    content: ''; 
+}
+.fivePointStar:after{
+    $top: null;
+    $right: 100px solid transparent;
+    $bottom: 70px solid red;
+    $left: 100px solid transparent;
+    $radius: -70deg;
+    @include triangle($top, $right, $bottom, $left, $radius);
+    position: absolute;    
+    display: block; 
+    top: 3px;    
+    left: -105px;  
+    content: "";
+}

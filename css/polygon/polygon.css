@@ -1,31 +1,149 @@
-.rightdirection {
-  width: 0;
-  height: 0;
-  line-height: 0;
-  border-width: 20px;
-  border-style: solid;
-  border-color: transparent transparent transparent #A9DBF6; }
+p {
+  width: 20px; }
 
-.bottomdirection {
-  width: 0;
-  height: 0;
-  line-height: 0;
-  border-width: 20px;
-  border-style: solid;
-  border-color: #A9DBF6 transparent transparent transparent; }
+div {
+  margin-left: 30px; }
 
-.leftdirection {
-  width: 0;
-  height: 0;
-  line-height: 0;
-  border-width: 20px;
-  border-style: solid;
-  border-color: transparent #A9DBF6 transparent transparent; }
+.rectangle {
+  width: 120px;
+  height: 100px;
+  background-color: red; }
 
-.topdirection {
-  width: 0;
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 80px solid red;
+  border-left: 50px solid transparent;
+  transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(30deg);
+  /* Opera */
+  -moz-transform: rotate(30deg);
+  /* Firefox */
+  margin-top: 30px; }
+
+.oval {
+  width: 200px;
+  height: 100px;
+  -moz-border-radius: 200px / 100px;
+  -webkit-border-radius: 200px / 100px;
+  border-radius: 200px / 100px;
+  background: red;
+  margin-top: 50px; }
+
+.parallelogram {
+  width: 150px;
+  height: 100px;
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  background: red; }
+
+.keystone {
+  border-bottom: 100px solid red;
+  border-left: 50px solid transparent;
+  border-right: 60px solid transparent;
   height: 0;
-  line-height: 0;
-  border-width: 20px;
-  border-style: solid;
-  border-color: transparent transparent #A9DBF6 transparent; }
+  width: 100px; }
+
+.starOfDavid {
+  width: 0px;
+  height: 0px;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+  border-left: 50px solid transparent;
+  transform: rotate();
+  -ms-transform: rotate();
+  /* IE 9 */
+  -webkit-transform: rotate();
+  /* Safari and Chrome */
+  -o-transform: rotate();
+  /* Opera */
+  -moz-transform: rotate();
+  /* Firefox */
+  position: relative; }
+
+.starOfDavid:after {
+  width: 0px;
+  height: 0px;
+  border-top: 100px solid red;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+  transform: rotate();
+  -ms-transform: rotate();
+  /* IE 9 */
+  -webkit-transform: rotate();
+  /* Safari and Chrome */
+  -o-transform: rotate();
+  /* Opera */
+  -moz-transform: rotate();
+  /* Firefox */
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: -50px; }
+
+.fivePointStar {
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  /* IE 9 */
+  -webkit-transform: rotate(35deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(35deg);
+  /* Opera */
+  -moz-transform: rotate(35deg);
+  /* Firefox */
+  margin-top: 100px;
+  position: relative;
+  display: block; }
+
+.fivePointStar:before {
+  width: 0px;
+  height: 0px;
+  border-right: 30px solid transparent;
+  border-bottom: 80px solid red;
+  border-left: 30px solid transparent;
+  transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-35deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(-35deg);
+  /* Opera */
+  -moz-transform: rotate(-35deg);
+  /* Firefox */
+  position: absolute;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: ''; }
+
+.fivePointStar:after {
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+  -ms-transform: rotate(-70deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-70deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(-70deg);
+  /* Opera */
+  -moz-transform: rotate(-70deg);
+  /* Firefox */
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: -105px;
+  content: ""; }
