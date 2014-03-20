@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../libs/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../js/drag/drag.js"></script>
+<title>polygon</title>
+</head>
+
+<body>
+<style type="text/css">
+	.drag{
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width:0;height:0;  
+    	line-height:0;  
+    	border-width:50px;  
+    	border-style:solid;  
+    	border-color: transparent transparent transparent red;
+	}
+	.drag1{
+		width:0;height:0;  
+	    line-height:0;  
+	    border-width:50px;  
+	    border-style:solid;  
+	    border-color: blue transparent transparent transparent; 
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		//拖动标题
+		$(".drag").drag();
+		$(".drag1").drag();
+	});
+
+</script>
+	<div class="drag">
+	</div>
+	<div class="drag1">
+	</div> 
+</body>
+</html>
